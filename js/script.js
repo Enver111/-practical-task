@@ -1,43 +1,78 @@
-/* // Получаем контейнер и тикер
-const tickerContainer = document.querySelector('.ticker-container');
-const ticker = document.querySelector('.ticker');
-// Клонируем изображения и добавляем их в конец тикера
-ticker.innerHTML += ticker.innerHTML;
-// Запускаем тикер
-ticker.style.animation = ticker`${ticker.offsetWidth / 100}s linear infinite`;
-// Устанавливаем высоту контейнера такую же, как у тикера
-tickerContainer.style.height = `${ticker.offsetHeight}px`; */
+// Получаем контейнер и тикер
+function onTicker() {}
 
 /// slider
-var slideIndex = 0;
-var slides = Array.from({ length: 16 });
 
-function showSlides(n) {
-  var i;
-  var slidesDiv = document.getElementsByClassName('slide');
-  if (n > slidesDiv.length) {
-    slideIndex = slidesDiv.length;
+let width = 367;
+let count = 1;
+let carousel = document.querySelector('.carousel');
+let list = carousel.querySelector('ul');
+let listElems = carousel.querySelectorAll('li');
+let position = 0;
+let currentSlide = 1;
+let totalSlides = listElems.length;
+
+let prev = document.querySelector('.prev');
+let next = document.querySelector('.next');
+
+// Создаем изображения
+function onSlider() {
+  const nextVectorBlack = document.createElement('img');
+  nextVectorBlack.src = '/icon/vector/vectorRightBlack.svg';
+  nextVectorBlack.alt = 'vectorRightBlack';
+  const nextVector = document.createElement('img');
+  nextVector.src = '/icon/vector/vectorRight.svg';
+  nextVector.alt = 'vectorRight';
+
+  const prevVectorBlack = document.createElement('img');
+  prevVectorBlack.src = '/icon/vector/vectorLeftBlack.svg';
+  prevVectorBlack.alt = 'vectorLeftBlack';
+  const prevVector = document.createElement('img');
+  prevVector.src = '/icon/vector/vectorLeft.svg';
+  prevVector.alt = 'vectorLeft';
+
+  // Добавляем изображения в кнопки
+  next.appendChild(nextVectorBlack);
+  prev.appendChild(prevVector);
+
+  function updateCounter() {
+    document.querySelector('.currentSlide').textContent = currentSlide;
+    document.querySelector('.totalSlides').textContent = 'of ' + totalSlides;
+
+    // Обновляем изображения в кнопках
+    if (currentSlide === 1) {
+      prev.firstChild.replaceWith(prevVector);
+    } else {
+      prev.firstChild.replaceWith(prevVectorBlack);
+    }
+
+    if (currentSlide === totalSlides) {
+      next.firstChild.replaceWith(nextVector);
+    } else {
+      next.firstChild.replaceWith(nextVectorBlack);
+    }
   }
-  if (n < 1) {
-    slideIndex = 1;
-  }
-  for (i = 0; i < slidesDiv.length; i++) {
-    slidesDiv[i].style.display = 'none';
-  }
-  slidesDiv[slideIndex - 1].style.display = 'block';
-  document.getElementById('slideCounter').innerHTML = slideIndex + '/10';
+
+  prev.onclick = function () {
+    position += width * count;
+    position = Math.min(position, 0);
+    list.style.marginLeft = position + 'px';
+    if (currentSlide > 1) {
+      currentSlide--;
+    }
+    updateCounter();
+  };
+
+  next.onclick = function () {
+    position -= width * count;
+    position = Math.max(position, -width * (listElems.length - count));
+    list.style.marginLeft = position + 'px';
+    if (currentSlide < totalSlides) {
+      currentSlide++;
+    }
+    updateCounter();
+  };
+
+  updateCounter();
 }
-
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-document.addEventListener('DOMContentLoaded', (event) => {
-  showSlides(slideIndex);
-  document.querySelector('.prev').addEventListener('click', function () {
-    plusSlides(-3);
-  });
-  document.querySelector('.next').addEventListener('click', function () {
-    plusSlides(3);
-  });
-});
+onSlider();
