@@ -1,15 +1,48 @@
 @font-face {
   font-family: Suisse Intl;
-  src: url(../Fonts/suisse-intl-regular.ttf);
+  src: url(/Fonts/SuisseIntl-Regular.otf);
 }
 body {
   font-family: Suisse Intl;
   padding: 0;
   margin: 0;
 }
+
+.language {
+  display: none;
+  position: fixed;
+  top: 63px;
+}
+.lang_select {
+  position: relative;
+}
+.language_wrap {
+  position: absolute;
+  padding: 2px;
+  border-radius: 10px;
+  background: rgb(255, 255, 255);
+  transition: left 0.4s;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.select_language {
+  width: 61px;
+  text-align: center;
+  padding: 10px 0;
+  color: rgb(7, 8, 9);
+  font-size: 16px;
+}
+.select_language:hover {
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
 .solutions {
   display: none;
-  transition: all 0.5s ease;
+  position: absolute;
+  position: fixed;
+  top: 70px;
+  margin-left: 155px;
 }
 .solutions_wrapp {
   /* width: 745px; */
@@ -21,11 +54,11 @@ body {
   border-radius: 16px;
   box-shadow: -40px 40px 80px -8px rgba(145, 158, 171, 0.24);
   background: rgb(255, 255, 255);
-  position: absolute;
+
   z-index: 1;
-  left: 195px;
-  top: 70px;
-  position: fixed;
+
+  transition: width 0.5s;
+  transition: left 0.5s;
 }
 .solutions_btn {
   display: flex;
@@ -34,6 +67,7 @@ body {
   width: 205px;
   height: 44px;
   padding: 10px 8px 10px 16px;
+  cursor: pointer;
 }
 .solutions_btn .solutions_btn_icon {
   opacity: 0;
@@ -56,9 +90,11 @@ body {
 }
 .solutions_marketplaces_page {
   display: none;
+  margin-left: 253px;
 }
 .solutions_online_stories_page {
   display: none;
+  margin-left: 269px;
 }
 
 .solutions_page {
@@ -70,7 +106,6 @@ body {
   height: 332px;
   position: absolute;
   z-index: 2;
-  right: 260px;
   top: 86px;
   position: fixed;
 }
@@ -188,7 +223,7 @@ body {
 }
 .container {
   margin: auto;
-  width: 1200px;
+  max-width: 1200px;
 }
 .header {
   background-image: url(/img/bg.png);
@@ -209,45 +244,42 @@ body {
   transition: background-color 0.5s;
   transition: padding 0.5s;
   z-index: 1;
+  padding: 4px 0;
 }
 .left {
   display: flex;
+  gap: 1px;
 }
 .right {
   display: flex;
+  gap: 1px;
 }
 
 .logo {
-  margin: auto;
+  margin: auto 0;
   color: rgb(0, 0, 0);
   font-size: 31.12px;
   font-weight: 900;
   line-height: 110%;
   letter-spacing: -3%;
-  padding-right: 60px;
+  padding-right: 44px;
 }
-.btn {
-  margin: auto;
-  color: rgb(8, 9, 10);
-  font-size: 16px;
-  cursor: pointer;
-  height: 44px;
-}
-.vector_block :hover {
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.1);
+.england {
+  width: 20px;
 }
 .vector_block {
-  height: 44px;
   display: flex;
   align-items: center;
+  padding: 0 16px;
+  cursor: pointer;
 }
-.btn_log {
-  margin: auto 32px auto 10.5px;
+.vector_block:hover {
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .vector {
-  margin: auto 9px;
+  margin: auto 0 auto 9px;
   width: 8px;
   height: 5px;
   transition: all 0.5s ease;
@@ -256,6 +288,7 @@ body {
 .advertising {
   margin: auto 0;
   padding-top: 45px;
+  z-index: 0;
 }
 .advertising_wrapper {
   display: flex;
@@ -849,4 +882,181 @@ body {
 .footer_bot_r {
   display: flex;
   gap: 24px;
+}
+.hamburger-menu {
+  display: none;
+}
+.content_wrapper_mobile {
+  display: none;
+}
+.dots {
+  display: none;
+}
+.animation_page_cards_percent_mobile {
+  display: none;
+}
+@media (max-width: 600px) {
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .vector_block {
+    display: none;
+  }
+  .nav {
+    padding-bottom: 52px;
+  }
+  .nav_wrapper {
+    height: 52px;
+  }
+  .advertising {
+    padding: 0;
+    margin: 0 auto;
+  }
+  .advertising_wrapper {
+    height: 82px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 30px auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .line {
+    margin: auto 0;
+    width: 24px;
+  }
+  .advertising_block {
+    padding: 8px;
+    height: 36px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  /*   .advertising_block:last-child {
+    width: 151px;
+    box-sizing: border-box;
+  } */
+
+  .advertising_text {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 1%;
+  }
+  .content_wrapper {
+    display: none;
+  }
+  .content_wrapper_mobile {
+    margin: 0 auto;
+    display: block;
+    width: 297px;
+  }
+  .title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  .content_info {
+    margin-bottom: 30px;
+  }
+  .main_button {
+    width: 174px;
+    height: 50px;
+  }
+  .content_inform {
+    margin: 63px 0 8px 0;
+  }
+  .ticker-container {
+    padding-bottom: 10px;
+  }
+  .main {
+    margin: 80px auto;
+  }
+  .subheader {
+    margin: 0 auto;
+    width: 328px;
+  }
+  .cards {
+    width: 840px;
+    margin: 60px 0 0 20px;
+    justify-content: flex-start;
+  }
+  .cards_wrap {
+    width: 280px;
+    height: 340px;
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .num {
+    margin: 0;
+  }
+  .wrapper {
+    margin: 16px 0 0 0;
+  }
+  .cards_icon {
+    position: absolute;
+    top: 251px;
+    left: 30px;
+    margin: 0;
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    margin: 10px;
+  }
+  .dot.active {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .animation_page {
+    margin: 10px auto 59px auto;
+    height: auto;
+    /* height: 546px; */
+  }
+  .animation_page_wrap {
+    display: block;
+  }
+  .animation_page_text {
+    padding-top: 104px;
+    margin: 0 auto;
+  }
+  .animation_page_text span {
+    font-size: 24px;
+  }
+  .animation_page_cards {
+    margin: 42.85px 0 0 24px;
+  }
+  .animation_page_cards_2 {
+    top: 46.46px;
+    right: 0;
+  }
+  .animation_page_cards_percent_pc {
+    display: none;
+  }
+  .animation_page_cards_percent_mobile {
+    display: flex;
+    justify-content: center;
+    gap: 2.7px;
+    margin: 0;
+    width: 45.82px;
+    height: 15.5px;
+    border-radius: 21.59px;
+    background: rgba(54, 179, 126, 0.24);
+    padding: 2.16px 0;
+  }
+
+  .animation_page_cards_percent_mobile img {
+    width: 5.39px;
+    margin: auto 0;
+  }
+  .animation_page_cards_percent_mobile p {
+    color: rgb(156, 207, 79);
+    font-size: 8.09px;
+    margin: auto 0;
+  }
 }

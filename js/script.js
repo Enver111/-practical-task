@@ -97,6 +97,8 @@ function headerColor() {
   let header = document.querySelector('.nav_wrapper');
   let btnBoock = document.querySelector('.btn_boock');
   let btns = document.querySelectorAll('.btn');
+  let langSelect = document.querySelector('.language_wrap');
+  let solutionsWrapp = document.querySelector('.solutions_wrapp');
 
   // Сохраняем исходные стили кнопки
   let originalStyles = {
@@ -105,6 +107,7 @@ function headerColor() {
     color: btnBoock.style.color,
     width: btnBoock.style.width,
     height: btnBoock.style.height,
+    margin: btnBoock.style.margin,
     padding: btnBoock.style.padding,
   };
 
@@ -112,9 +115,9 @@ function headerColor() {
     { property: 'borderRadius', value: '8px' },
     { property: 'background', value: 'black' },
     { property: 'color', value: 'white' },
-    { property: 'width', value: '133px' },
-    { property: 'text-align', value: 'center' },
-    { property: 'padding', value: '11px 0' },
+    { property: 'textAlign', value: 'center' },
+    { property: 'marginLeft', value: '15px' },
+    { property: 'padding', value: '11px 17px' },
   ];
 
   window.onscroll = function () {
@@ -125,6 +128,7 @@ function headerColor() {
       header.style.background = 'rgb(252, 253, 254)';
       header.style.padding = '4px 24px ';
       header.style.border = '1px solid rgba(0, 0, 0, 0.1)';
+      solutionsWrapp.style.left = '218px';
       for (let i = 0; i < newStyles.length; i++) {
         btnBoock.style[newStyles[i].property] = newStyles[i].value;
       }
@@ -133,7 +137,8 @@ function headerColor() {
         btn.style.fontWeight = '500';
       }
       header.style.background = 'none';
-      header.style.padding = '4px 24px ';
+      solutionsWrapp.style.left = '195px';
+      header.style.padding = '4px 0 ';
       header.style.border = 'none';
       for (let prop in originalStyles) {
         btnBoock.style[prop] = originalStyles[prop];
@@ -148,13 +153,20 @@ function onSolution() {
   let btn = document.querySelector('.vector_block');
   let icon = document.querySelector('.vector');
 
+  let originalBackground = btn.style.background;
+  let originalBorderRadius = btn.style.borderRadius;
+
   btn.onclick = function () {
     if (solutions.style.display === 'block') {
       solutions.style.display = 'none';
       icon.style.transform = 'rotate(0deg)';
+      btn.style.background = originalBackground;
+      btn.style.borderRadius = originalBorderRadius;
     } else {
       solutions.style.display = 'block';
       icon.style.transform = 'rotate(180deg)';
+      btn.style.background = 'rgba(0, 0, 0, 0.1)';
+      btn.style.borderRadius = '8px';
     }
   };
 }
@@ -162,25 +174,37 @@ onSolution();
 
 function onSolutionPages() {
   let solutionsWrap = document.querySelector('.solutions_wrapp');
-  let btn1 = document.querySelector('.solutions_btn_vector1');
-  let btn2 = document.querySelector('.solutions_btn_vector2');
+  let btn1 = document.querySelector('.solutions_btn_1');
+  let btn2 = document.querySelector('.solutions_btn_2');
   let icon1 = document.querySelector('.icon1');
   let icon2 = document.querySelector('.icon2');
   let marketplacesPage = document.querySelector('.solutions_marketplaces_page');
   let onlineStoriesPage = document.querySelector(
     '.solutions_online_stories_page'
   );
+
+  let originalBackgroundBtn1 = btn1.style.background;
+  let originalBorderRadiusBtn1 = btn1.style.borderRadius;
+  let originalBackgroundBtn2 = btn2.style.background;
+  let originalBorderRadiusBtn2 = btn2.style.borderRadius;
+
   btn1.onclick = function () {
     if (marketplacesPage.style.display === 'block') {
       marketplacesPage.style.display = 'none';
       solutionsWrap.style.width = '235px';
       icon1.style.transform = 'rotate(0deg)';
+      btn1.style.background = originalBackgroundBtn1;
+      btn1.style.borderRadius = originalBorderRadiusBtn1;
     } else {
+      btn2.style.background = originalBackgroundBtn2;
+      btn2.style.borderRadius = originalBorderRadiusBtn2;
       solutionsWrap.style.width = '745px';
       marketplacesPage.style.display = 'block';
       onlineStoriesPage.style.display = 'none';
       icon1.style.transform = 'rotate(180deg)';
       icon2.style.transform = 'rotate(0deg)';
+      btn1.style.background = 'rgba(0, 0, 0, 0.1)';
+      btn1.style.borderRadius = '8px';
     }
   };
   btn2.onclick = function () {
@@ -188,16 +212,23 @@ function onSolutionPages() {
       onlineStoriesPage.style.display = 'none';
       solutionsWrap.style.width = '235px';
       icon2.style.transform = 'rotate(0deg)';
+      btn2.style.background = originalBackgroundBtn2;
+      btn2.style.borderRadius = originalBorderRadiusBtn2;
     } else {
+      btn1.style.background = originalBackgroundBtn1;
+      btn1.style.borderRadius = originalBorderRadiusBtn1;
       solutionsWrap.style.width = '745px';
       marketplacesPage.style.display = 'none';
       onlineStoriesPage.style.display = 'block';
       icon1.style.transform = 'rotate(0deg)';
       icon2.style.transform = 'rotate(180deg)';
+      btn2.style.background = 'rgba(0, 0, 0, 0.1)';
+      btn2.style.borderRadius = '8px';
     }
   };
 }
 onSolutionPages();
+
 function textAnimation() {
   let span = document.querySelector('.animation_page_text span');
   window.addEventListener('scroll', () => {
@@ -209,3 +240,58 @@ function textAnimation() {
 }
 
 textAnimation();
+
+function languageSelect() {
+  let langSelect = document.querySelector('.lang_select');
+  let text = document.querySelector('.england');
+  let language = document.querySelector('.language');
+  let languages = document.querySelectorAll('.select_language');
+  let icon = document.querySelector('.vector_lang');
+
+  // Сохраняем оригинальные стили
+  let originalBackground = langSelect.style.background;
+  let originalBorderRadius = langSelect.style.borderRadius;
+
+  langSelect.onclick = function () {
+    if (language.style.display === 'block') {
+      language.style.display = 'none';
+      icon.style.transform = 'rotate(0deg)';
+
+      // Восстанавливаем оригинальные стили
+      langSelect.style.background = originalBackground;
+      langSelect.style.borderRadius = originalBorderRadius;
+    } else {
+      language.style.display = 'block';
+      langSelect.style.background = 'rgba(0, 0, 0, 0.1)';
+      langSelect.style.borderRadius = '8px';
+      icon.style.transform = 'rotate(180deg)';
+    }
+  };
+
+  for (let btn of languages) {
+    btn.onclick = function () {
+      let temp = text.textContent;
+      text.textContent = btn.textContent;
+      btn.textContent = temp;
+    };
+  }
+}
+languageSelect();
+
+function updateCards() {
+  let index = 0;
+  let cards = document.querySelectorAll('.cards_wrap');
+  let dots = document.querySelectorAll('.dot');
+  cards.forEach((card, i) => {
+    card.style.transform = `translateX(${-index * 280}px)`;
+  });
+  dots.forEach((dot) => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+document.querySelector('.carousel').addEventListener('swipeleft', () => {
+  index = (index + 1) % cards.length;
+  updateCards();
+});
+
+updateCards();
