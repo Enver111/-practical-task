@@ -295,3 +295,41 @@ document.querySelector('.carousel').addEventListener('swipeleft', () => {
 });
 
 updateCards();
+function mobileSubscriptionCards() {
+  let cardContainer = document.querySelector('.subscription_cards');
+  let card1 = document.querySelector('.subscription_cards1');
+  let card2 = document.querySelector('.subscription_cards2');
+  let btn1 = document.querySelector('.subscription_btns_mobile_pro');
+  let btn2 = document.querySelector('.subscription_btns_mobile_ult');
+  let touchStartX = 0;
+  let touchEndX = 0;
+  btn1.addEventListener('touchend', function () {
+    card1.style.transform = 'translateX(0)';
+    card2.style.transform = 'translateX(0)';
+  });
+
+  btn2.addEventListener('touchend', function () {
+    card1.style.transform = 'translateX(-308px)';
+    card2.style.transform = 'translateX(-308px)';
+  });
+
+  function handleSwipe() {
+    if (touchEndX < touchStartX) {
+      card1.style.transform = 'translateX(-308px)';
+      card2.style.transform = 'translateX(-308px)';
+    }
+    if (touchEndX > touchStartX) {
+      card1.style.transform = 'translateX(0)';
+      card2.style.transform = 'translateX(0)';
+    }
+    cardContainer.addEventListener('touchstart', function (event) {
+      touchStartX = event.changedTouches[0].screenX;
+    });
+
+    cardContainer.addEventListener('touchend', function (event) {
+      touchEndX = event.changedTouches[0].screenX;
+    });
+  }
+  handleSwipe();
+}
+mobileSubscriptionCards();

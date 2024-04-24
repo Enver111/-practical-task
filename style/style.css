@@ -531,17 +531,16 @@ body {
   display: flex;
 }
 
-.animation_page_cards_text {
+.animation_page_cards_text,
+.cards2_text_pc {
   margin: 0;
   font-size: 12.96px;
+  color: rgb(255, 255, 255);
 }
 .animation_page_cards_text:first-child {
   color: rgb(128, 128, 128);
 }
 
-.animation_page_cards_text:last-child {
-  color: rgb(255, 255, 255);
-}
 .animation_page_cards_2 {
   padding: 17.27px 17.28px 21.59px 17.28px;
   width: 280.72px;
@@ -558,7 +557,7 @@ body {
 .cards2_text:first-child {
   color: rgb(255, 255, 255);
 }
-.cards2_main {
+.cards2_main_pc {
   color: rgb(255, 255, 255);
 }
 .support {
@@ -895,9 +894,12 @@ body {
 .animation_page_cards_percent_mobile {
   display: none;
 }
-@media (max-width: 600px) {
+.cards2_text_mobile {
+  display: none;
+}
+@media (max-width: 360px) {
   .container {
-    max-width: 600px;
+    max-width: 360px;
     margin: 0 auto;
   }
   .vector_block {
@@ -1020,20 +1022,32 @@ body {
   }
   .animation_page_wrap {
     display: block;
+    padding-bottom: 145.42px;
   }
   .animation_page_text {
     padding-top: 104px;
-    margin: 0 auto;
+    margin: 0 0 0 24px;
+    width: 304px;
   }
   .animation_page_text span {
     font-size: 24px;
+    width: 304px;
   }
   .animation_page_cards {
-    margin: 42.85px 0 0 24px;
+    margin: 23.98px 0 0 24px;
+    width: 312px;
+    display: flex;
+  }
+  .animation_page_cards_1 {
+    margin-top: 18.85px;
+    padding: 9.78px;
+    width: 175.21px;
   }
   .animation_page_cards_2 {
-    top: 46.46px;
-    right: 0;
+    top: 65.31px;
+    right: 16.07px;
+    width: 175.21px;
+    padding: 10.9px;
   }
   .animation_page_cards_percent_pc {
     display: none;
@@ -1043,11 +1057,10 @@ body {
     justify-content: center;
     gap: 2.7px;
     margin: 0;
-    width: 45.82px;
     height: 15.5px;
     border-radius: 21.59px;
     background: rgba(54, 179, 126, 0.24);
-    padding: 2.16px 0;
+    padding: 0 5px;
   }
 
   .animation_page_cards_percent_mobile img {
@@ -1058,5 +1071,220 @@ body {
     color: rgb(156, 207, 79);
     font-size: 8.09px;
     margin: auto 0;
+  }
+  .animation_page_cards_text_top {
+    font-size: 9.43px;
+    margin: 2px 0 0 0;
+  }
+  .animation_page_cards_main,
+  .animation_page_cards_main_mobile {
+    font-size: 28.3px;
+    margin: 4.04px 0 21.56px 0;
+  }
+
+  .animation_page_cards_text {
+    font-size: 8.09px;
+    margin-bottom: 1.93px;
+  }
+  .cards2_main_pc {
+    display: none;
+  }
+  .animation_page_cards_main_mobile {
+    color: rgb(255, 255, 255);
+    font-size: 28.3px;
+  }
+  .cards2_text_pc {
+    display: none;
+  }
+  .cards2_text_mobile {
+    display: block;
+    color: rgb(161, 158, 170);
+  }
+  .support {
+    width: 122.43px;
+    height: 40.43px;
+    margin: 0 0 0 12.23px;
+    padding: 13.48px 10.78px;
+
+    /* right: -211.44px; */
+  }
+  .support img {
+    width: 13.48px;
+    height: 13.48px;
+  }
+  .support p {
+    font-size: 8.09px;
+    margin: auto 0;
+  }
+  .try_btn_pc {
+    display: none;
+  }
+  .try_btn_mobile {
+    width: 142px;
+    height: 50px;
+    font-size: 16px;
+  }
+  .subscription {
+    margin-top: 60px;
+  }
+  .subheader_pc {
+    display: none;
+  }
+  .subheader_mobile {
+    font-size: 32px;
+  }
+  .subscription_btns_mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    gap: 8px;
+  }
+  .subscription_btns_mobile_pro {
+    width: 65px;
+    height: 42px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 74.01px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+  }
+  .subscription_btns_mobile_ult {
+    width: 103px;
+    height: 42px;
+    box-sizing: border-box;
+    border: 1px solid rgb(223, 227, 232);
+    background-color: white;
+    border-radius: 74.01px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+  }
+  .subscription_cards {
+    justify-content: normal;
+    padding: 32px 0 0 20px;
+  }
+  .subscription_card {
+    width: 300px;
+    height: 631px;
+    padding: 22px;
+  }
+  .subscription_btn {
+    width: 252px;
+  }
+  .checkbox_pc {
+    display: none;
+  }
+  .subscription_card {
+    transition: transform 0.5s ease-out;
+  }
+
+  .subscription_cards1 {
+    transform: translateX(0);
+  }
+  .subscription_cards2 {
+    transform: translateX(0);
+  }
+  .worck {
+    margin-top: 80px;
+  }
+  .worck_wrap {
+    padding: 61px 40px;
+    height: 483px;
+    background-position: left -100px top 215px;
+    background-size: 561px 370.67px;
+  }
+  .worck_subheader_pc {
+    display: none;
+  }
+  .worck_subheader_mobile {
+    font-size: 32px;
+    text-align: center;
+  }
+  .worck_btn {
+    margin: 0 77px 0 77px;
+  }
+
+  .office {
+    padding: 80px 0 0 0;
+  }
+  .subheader_pc {
+    display: none;
+  }
+  .subheader_mobile {
+    margin-bottom: 32px;
+    font-size: 32px;
+  }
+  .carousel {
+    padding: 0 20px;
+  }
+  .slide_pc {
+    display: none;
+  }
+  .employee_icon_mobile {
+    background-color: unset;
+  }
+  .control {
+    margin-top: 20px;
+  }
+  .footer {
+    margin-top: 110px;
+  }
+  .footer_wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer_nav_wrap {
+    order: 1;
+    flex-direction: column;
+    gap: 32px;
+    margin: 0;
+    padding: 0 16px;
+  }
+  .footer_nav {
+    width: auto;
+  }
+  .footer_nav_head {
+    font-size: 14px;
+    margin: 0 0 16px 0;
+  }
+  .footer_nav_main_col {
+    color: rgb(0, 0, 0);
+  }
+  .footer_nav_main {
+    margin: 0 0 16px 0;
+  }
+
+  .media {
+    order: 2;
+    padding: 0;
+    flex-direction: column;
+  }
+  .empty_bock_mobile {
+    width: 52.74px;
+    height: 53.5px;
+    border: 1px dashed rgb(223, 227, 232);
+
+    margin: 80px auto 4.5px auto;
+  }
+  .media_wrap {
+    margin-top: 25px;
+    justify-content: center;
+    gap: 14px;
+  }
+  .logo_bottom {
+    padding: 0;
+    text-align: center;
+  }
+
+  .footer_bot {
+    order: 3;
+    padding: 0;
+    margin: 32px auto 20px auto;
+  }
+  .footer_bot_r {
+    display: none;
+  }
+  .footer_nav_wrap_pc {
+    display: none;
   }
 }
