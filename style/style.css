@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: Suisse Intl_Bold;
-  src: url(/Fonts/SuisseIntl-Bold.otf);
+  src: url(./Fonts/SuisseIntl-Bold.otf);
 }
 body {
   font-family: Suisse Intl;
